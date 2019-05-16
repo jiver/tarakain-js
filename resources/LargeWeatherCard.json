@@ -10,7 +10,7 @@
         "columns": [
           {
             "type": "Column",
-            "width": "35",
+            "width": "20",
             "items": [
               {
                 "type": "Image",
@@ -25,27 +25,27 @@
             "items": [
               {
                 "type": "TextBlock",
-                "text": "Monday April 1",
+                "text": "Join Status",
                 "weight": "bolder",
                 "size": "large",
                 "color": "light"
               },
               {
                 "type": "TextBlock",
-                "text": "63 / 42",
+                "text": "",
                 "size": "medium",
                 "spacing": "none"
               },
               {
                 "type": "TextBlock",
                 "isSubtle": true,
-                "text": "20% chance of rain",
+                "text": "",
                 "spacing": "none"
               },
               {
                 "type": "TextBlock",
                 "isSubtle": true,
-                "text": "Winds 5 mph NE",
+                "text": "",
                 "spacing": "none"
               }
             ]
@@ -63,26 +63,14 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-                "text": "Fri"
+				"size": "large",
+				"isSubtle": true,
+                "text": "G"
               },
               {
                 "type": "Image",
-                "size": "auto",
+                "size": "5",
                 "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "wrap": false,
-                "text": "62"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "isSubtle": true,
-                "wrap": false,
-                "text": "52",
-                "spacing": "none"
               }
             ],
             "selectAction": {
@@ -99,26 +87,14 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-                "text": "Sat"
+				"size": "large",
+				"isSubtle": true,
+                "text": "Pass"
               },
               {
                 "type": "Image",
-                "size": "auto",
+                "size": "5",
                 "url": "http://adaptivecards.io/content/Drizzle-Square.png"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "wrap": false,
-                "text": "60"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "isSubtle": true,
-                "wrap": false,
-                "text": "48",
-                "spacing": "none"
               }
             ],
             "selectAction": {
@@ -135,67 +111,19 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-                "text": "Sun"
+				"size": "large",
+				"isSubtle": true,
+                "text": "Pabili"
               },
               {
                 "type": "Image",
-                "size": "auto",
+                "size": "5",
                 "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "wrap": false,
-                "text": "59"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "isSubtle": true,
-                "wrap": false,
-                "text": "49",
-                "spacing": "none"
               }
             ],
             "selectAction": {
               "type": "Action.OpenUrl",
               "title": "View Sunday",
-              "url": "http://www.microsoft.com"
-            }
-          },
-          {
-            "type": "Column",
-            "width": "20",
-            "items": [
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "wrap": false,
-                "text": "Mon"
-              },
-              {
-                "type": "Image",
-                "size": "auto",
-                "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "wrap": false,
-                "text": "64"
-              },
-              {
-                "type": "TextBlock",
-                "horizontalAlignment": "center",
-                "isSubtle": true,
-                "wrap": false,
-                "text": "51",
-                "spacing": "none"
-              }
-            ],
-            "selectAction": {
-              "type": "Action.OpenUrl",
-              "title": "View Monday",
               "url": "http://www.microsoft.com"
             }
           }
