@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.4/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.4",
+  "version": "1.0",
+  "id": "37608e1c-79b0-48e1-a074-e01be75fe53c",
+  "packageName": "com.microsoft.teams.samples.Todo",
+  "developer": {
+    "name": "John Developer",
+    "websiteUrl": "http://todobotservice.azurewebsites.net/",
+    "privacyUrl": "http://todobotservice.azurewebsites.net/privacy",
+    "termsOfUseUrl": "http://todobotservice.azurewebsites.net/termsofuse"
+  },
+  "name": {
+    "short": "To Do",
+    "full": "To Do"
+  },
+  "description": {
+    "short": "Find or create a new task in To Do",
+    "full": "Find or create a new task in To Do"
+  },
+  "icons": {
+    "outline": "todo-outline.jpg",
+    "color": "todo-color.jpg"
+  },
+  "accentColor": "#ff6a00",
+  "composeExtensions": [
+    {
+      "botId": "57a3c29f-1fc5-4d97-a142-35bb662b7b23",
+      "canUpdateConfiguration": true,
+      "commands": [
+        {
+          "id": "searchCmd",
+          "description": "Search you Todo's",
+          "title": "Search",
+          "initialRun": true,
+          "parameters": [
+            {
+              "name": "searchKeyword",
+              "description": "Enter your search keywords",
+              "title": "Keywords"
+            }
+          ]
+        },
+        {
+          "id": "addTodo",
+          "description": "Create a To Do item",
+          "title": "Create To Do",
+          "type": "action",
+          "parameters": [
+            {
+              "name": "Name",
+              "description": "To Do Title",
+              "title": "Title",
+              "inputType": "text"
+            },
+            {
+              "name": "Description",
+              "description": "Description of the task",
+              "title": "Description",
+              "inputType": "textarea"
+            },
+            {
+              "name": "Date",
+              "description": "Due date for the task",
+              "title": "Date",
+              "inputType": "date"
+            }
+          ]
+        },
+        {
+          "id": "reassignTodo",
+          "description": "Reassign a todo item",
+          "title": "Create To Do",
+          "type": "action",
+          "fetchTask": true,
+          "parameters": [
+            {
+              "name": "Name",
+              "title": "Title"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "todobotservice.azurewebsites.net",
+    "*.todobotservice.azurewebsites.net"
+  ]
+}
