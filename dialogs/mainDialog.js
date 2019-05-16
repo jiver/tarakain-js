@@ -89,6 +89,7 @@ class MainDialog extends ComponentDialog {
         
         console.log(stepContext)
         console.log(stepContext.result)
+        console.log(stepContext.context)
 
         switch (stepContext.result.value) {
         case 'G':
