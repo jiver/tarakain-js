@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-
 const { AttachmentLayoutTypes, CardFactory } = require('botbuilder');
 const { ChoicePrompt, ComponentDialog, DialogSet, DialogTurnStatus, WaterfallDialog } = require('botbuilder-dialogs');
 const AdaptiveCard = require('../resources/adaptiveCard.json');
@@ -16,6 +15,9 @@ class UserProfile {
         this.vote = vote;
     }
 }
+
+
+
 
 class MainDialog extends ComponentDialog {
     constructor(logger) {
@@ -32,14 +34,20 @@ class MainDialog extends ComponentDialog {
 
         // Define the main dialog and its related components.
         this.addDialog(new ChoicePrompt('cardPrompt'));
+
         this.addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
             this.choiceCardStep.bind(this),
+			  this.choiceCardStep.bind(this),
+			    this.choiceCardStep.bind(this),
+				  this.choiceCardStep.bind(this),
             this.showCardStep.bind(this)
         ]));
 
         // The initial child Dialog to run.
         this.initialDialogId = MAIN_WATERFALL_DIALOG;
         //this.initialDialogId = 'cardPrompt'
+		
+		this.RESULT = {};
     }
 
     /**
@@ -75,9 +83,31 @@ class MainDialog extends ComponentDialog {
             retryPrompt: 'Paki-ayos',
             choices: this.getChoices()
         };
+		
+		//await stepContext.repromptDialog()
+		
+		console.log(stepContext.context.activity)
+		switch (stepContext.context.activity.text) {
+        case 'G':
+			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case 'Pass':
+			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case 'Pabili':
+			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        default:
+            break;
+        }
+		
+		console.log(this.RESULT)
+		
+		
+		return await stepContext.prompt('cardPrompt', options);
 
         // Prompt the user with the configured PromptOptions.
-        return await stepContext.prompt('cardPrompt', options);
+        //return await stepContext.repromptDialog()
     }
 
     /**
@@ -89,15 +119,19 @@ class MainDialog extends ComponentDialog {
         this.logger.log('MainDialog.showCardStep');
         
         //console.log(stepContext)
-        //console.log(stepContext.result)
+        console.log(stepContext.result)
         //console.log(stepContext.context)
-        console.log(stepContext.context.activity)
-		console.log(stepContext.context.activity.from)
-		console.log(stepContext.context.activity.from.name)
+        //console.log(stepContext.context.activity)
+		//console.log(stepContext.context.activity.from)
+		//console.log(stepContext.context.activity.from.name)
+		//console.log(stepContext.context.activity.id)
 
+		console.log(this.createGCard())
+		
         switch (stepContext.result.value) {
         case 'G':
             await stepContext.context.sendActivity({ attachments: [this.createGCard()] });
+			
             break;
         case 'Pass':
             await stepContext.context.updateActivity({ attachments: [this.createPassCard()] });
@@ -117,7 +151,8 @@ class MainDialog extends ComponentDialog {
             });
             break;
         }
-
+		await stepContext.context.deleteActivity(stepContext.context.activity.id);
+		
         // Give the user instructions about what to do next
         //await stepContext.context.sendActivity(stepContext.result.value);
 
@@ -188,8 +223,6 @@ class MainDialog extends ComponentDialog {
         );*/
         return CardFactory.adaptiveCard(AdaptiveCard);
     }
-	
-	
 }
 
 module.exports.MainDialog = MainDialog;
