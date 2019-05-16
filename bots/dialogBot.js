@@ -39,6 +39,7 @@ class DialogBot extends ActivityHandler {
             this.logger.log('Running dialog with Message Activity.');
             
             var user_msg = context.activity.text.toLowerCase();
+            user_msg = user_msg.trim();
             console.log('other text' + user_msg);
             user_msg = user_msg.replace('<at>tara kain</at> ', '');
             console.log('other text' + user_msg);
