@@ -87,10 +87,12 @@ class MainDialog extends ComponentDialog {
     async showCardStep(stepContext) {
         this.logger.log('MainDialog.showCardStep');
         
-        console.log(stepContext)
-        console.log(stepContext.result)
-        console.log(stepContext.context)
-        console.log(stepContext.context.from)
+        //console.log(stepContext)
+        //console.log(stepContext.result)
+        //console.log(stepContext.context)
+        console.log(stepContext.context.activity)
+		console.log(stepContext.context.activity.from)
+		console.log(stepContext.context.activity.from.name)
 
         switch (stepContext.result.value) {
         case 'G':
@@ -116,7 +118,7 @@ class MainDialog extends ComponentDialog {
         }
 
         // Give the user instructions about what to do next
-        await stepContext.context.sendActivity(stepContext.result.value);
+        //await stepContext.context.sendActivity(stepContext.result.value);
 
         return await stepContext.endDialog();
     }
