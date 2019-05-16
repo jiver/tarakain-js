@@ -39,6 +39,7 @@ class DialogBot extends ActivityHandler {
             this.logger.log('Running dialog with Message Activity.');
             
             const user_msg = context.activity.text.toLowerCase();
+            console.log(user_msg);
             user_msg.replace("<at>Tara Kain</at>", "");
             const g_options = ['g', 'pass', 'pabili'];
             const saan_options_price = ['p', 'pp', 'ppp'];
