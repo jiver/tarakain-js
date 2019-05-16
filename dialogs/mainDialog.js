@@ -76,13 +76,13 @@ class MainDialog extends ComponentDialog {
         this.logger.log('MainDialog.showCardStep');
 
         switch (stepContext.result.value) {
-        case 'G Card':
+        case 'G':
             await stepContext.context.sendActivity({ attachments: [this.createGCard()] });
             break;
-        case 'Pass Card':
+        case 'Pass':
             await stepContext.context.sendActivity({ attachments: [this.createPassCard()] });
             break;
-        case 'Pabili Card':
+        case 'Pabili':
             await stepContext.context.sendActivity({ attachments: [this.createPabiliCard()] });
             break;
         default:
