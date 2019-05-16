@@ -86,6 +86,7 @@ class MainDialog extends ComponentDialog {
             await stepContext.context.sendActivity({ attachments: [this.createPabiliCard()] });
             break;
         default:
+            stepContext.context.sendActivity(stepContext.result.value);
             await stepContext.context.sendActivity({
                 attachments: [
                     this.createGCard(),
