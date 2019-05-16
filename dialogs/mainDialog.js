@@ -36,11 +36,7 @@ class MainDialog extends ComponentDialog {
         this.addDialog(new ChoicePrompt('cardPrompt'));
 
         this.addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
-            this.choiceCardStep.bind(this),
-			  this.choiceCardStep.bind(this),
-			    this.choiceCardStep.bind(this),
-				  this.choiceCardStep.bind(this),
-            this.showCardStep.bind(this)
+            this.choiceCardStep.bind(this)
         ]));
 
         // The initial child Dialog to run.
