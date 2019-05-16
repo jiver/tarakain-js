@@ -88,13 +88,13 @@ class MainDialog extends ComponentDialog {
 		
 		console.log(stepContext.context.activity)
 		switch (stepContext.context.activity.text) {
-        case 'G':
+        case '<at>Test</at> G':
 			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
             break;
-        case 'Pass':
+        case '<at>Test</at> Pass':
 			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
             break;
-        case 'Pabili':
+        case '<at>Test</at> Pabili':
 			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
             break;
         default:
