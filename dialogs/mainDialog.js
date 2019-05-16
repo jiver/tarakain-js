@@ -154,9 +154,9 @@ class MainDialog extends ComponentDialog {
         //await stepContext.context.sendActivity(stepContext.result.value);
 
         return await stepContext.endDialog();
-    }*/
+    */
 	    stepContext.context.sendActivity(this.RESULT)
-
+	}
     /**
      * Create the choices with synonyms to render for the user during the ChoicePrompt.
      * (Indexes and upper/lower-case variants do not need to be added as synonyms)
