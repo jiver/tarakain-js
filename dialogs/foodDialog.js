@@ -95,6 +95,44 @@ class FoodDialog extends ComponentDialog {
         // Prompt the user with the configured PromptOptions.
         return await stepContext.prompt('cardPrompt', options);
     }
+    
+    async filterJSON(budget, area, type) {
+		console.log('Current directory: ' + process.cwd());
+		let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
+		var json_file = JSON.parse(rawdata);
+		
+		if (!budget) {
+			budget = 'PPP';
+		}
+		
+		if (!area) {
+			area = ['Piazza', 'Upper Mckinley', 'Tuscany', 'Rob']
+		}
+		else {
+			area = [area]
+		}
+		
+		if (!type) {
+			type = ['Resto', 'Fast food']
+		}
+		else {
+			type = [type]
+		}
+		
+		for (var key in json_file) {
+			if (json_file.hasOwnProperty(key)) {
+				if (json_file[key].Budget == budget || json_file[key].Budget.indexOf(budget)) {
+					if (area.indexOf(json_file[key].Area) >= 0) {
+						if (type.indexOf(json_file[key].Type) >= 0) {
+							console.log(key + " -> " + json_file[key].Budget + "\n\t" + json_file[key].Area + "\n\t" + json_file[key].Type);
+						}
+					}
+					
+				}
+				
+			}
+		}
+	}
 
     
     /**
