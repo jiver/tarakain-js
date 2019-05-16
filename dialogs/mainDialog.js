@@ -7,9 +7,20 @@ const AdaptiveCard = require('../resources/adaptiveCard.json');
 
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 
+const USER_PROFILE = 'USER_PROFILE';
+
+class UserProfile {
+    constructor(name, vote) {
+        this.name = name;
+        this.vote = vote;
+    }
+}
+
 class MainDialog extends ComponentDialog {
     constructor(logger) {
         super('MainDialog');
+        
+        this.userProfile = userState.createProperty(USER_PROFILE);
 
         if (!logger) {
             logger = console;
@@ -75,6 +86,9 @@ class MainDialog extends ComponentDialog {
      */
     async showCardStep(stepContext) {
         this.logger.log('MainDialog.showCardStep');
+        
+        console.log(stepContext)
+        console.log(stepContext.result)
 
         switch (stepContext.result.value) {
         case 'G':
