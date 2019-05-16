@@ -10,6 +10,9 @@ const { AdaptiveCardsBot } = require('./bots/adaptiveCardsBot');
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 
+console.log(process.env.MicrosoftAppID);
+console.log(process.env.MicrosoftAppPassword);
+
 // Create adapter. See https://aka.ms/about-bot-adapter to learn more about adapters.
 const adapter = new BotFrameworkAdapter({
     appId: process.env.MicrosoftAppID,
