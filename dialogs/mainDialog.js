@@ -26,8 +26,8 @@ class MainDialog extends ComponentDialog {
         ]));
 
         // The initial child Dialog to run.
-        //this.initialDialogId = MAIN_WATERFALL_DIALOG;
-        this.initialDialogId = 'cardPrompt'
+        this.initialDialogId = MAIN_WATERFALL_DIALOG;
+        //this.initialDialogId = 'cardPrompt'
     }
 
     /**
@@ -137,7 +137,7 @@ class MainDialog extends ComponentDialog {
     }
 
     createPassCard() {
-       /* return CardFactory.animationCard(
+        return CardFactory.animationCard(
             'Microsoft Bot Framework',
             [
                 { url: 'https://i.giphy.com/Ki55RUbOV5njy.gif' }
@@ -146,8 +146,8 @@ class MainDialog extends ComponentDialog {
             {
                 subtitle: 'Animation Card'
             }
-        );*/
-        return CardFactory.adaptiveCard(AdaptiveCard);
+        );
+      //  return CardFactory.adaptiveCard(AdaptiveCard);
     }
 
     createPabiliCard() {
