@@ -13,6 +13,7 @@ const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = req
 // This bot's main dialog.
 const { RichCardsBot } = require('./bots/richCardsBot');
 const { MainDialog } = require('./dialogs/mainDialog');
+const { FoodDialog } = require('./dialogs/foodDialog');
 
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
@@ -53,7 +54,8 @@ const logger = console;
 
 // Create the main dialog.
 const dialog = new MainDialog(logger);
-const bot = new RichCardsBot(conversationState, userState, dialog, logger);
+const food_dialog = new FoodDialog(logger);
+const bot = new RichCardsBot(conversationState, userState, dialog, food_dialog, logger);
 
 // Create HTTP server.
 let server = restify.createServer();
