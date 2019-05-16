@@ -80,7 +80,7 @@ class MainDialog extends ComponentDialog {
             await stepContext.context.sendActivity({ attachments: [this.createGCard()] });
             break;
         case 'Pass':
-            await stepContext.context.sendActivity({ attachments: [this.createPassCard()] });
+            await stepContext.context.updateActivity({ attachments: [this.createPassCard()] });
             break;
         case 'Pabili':
             await stepContext.context.sendActivity({ attachments: [this.createPabiliCard()] });
@@ -136,7 +136,7 @@ class MainDialog extends ComponentDialog {
     }
 
     createPassCard() {
-        return CardFactory.animationCard(
+       /* return CardFactory.animationCard(
             'Microsoft Bot Framework',
             [
                 { url: 'https://i.giphy.com/Ki55RUbOV5njy.gif' }
@@ -145,11 +145,12 @@ class MainDialog extends ComponentDialog {
             {
                 subtitle: 'Animation Card'
             }
-        );
+        );*/
+        return CardFactory.adaptiveCard(AdaptiveCard);
     }
 
     createPabiliCard() {
-        return CardFactory.audioCard(
+      /*  return CardFactory.audioCard(
             'I am your father',
             ['https://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_yourfather.wav'],
             CardFactory.actions([
@@ -164,7 +165,8 @@ class MainDialog extends ComponentDialog {
                 text: 'The Empire Strikes Back (also known as Star Wars: Episode V – The Empire Strikes Back) is a 1980 American epic space opera film directed by Irvin Kershner. Leigh Brackett and Lawrence Kasdan wrote the screenplay, with George Lucas writing the film\'s story and serving as executive producer. The second installment in the original Star Wars trilogy, it was produced by Gary Kurtz for Lucasfilm Ltd. and stars Mark Hamill, Harrison Ford, Carrie Fisher, Billy Dee Williams, Anthony Daniels, David Prowse, Kenny Baker, Peter Mayhew and Frank Oz.',
                 image: 'https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg'
             }
-        );
+        );*/
+        return CardFactory.adaptiveCard(AdaptiveCard);
     }
 }
 
