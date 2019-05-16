@@ -18,7 +18,7 @@ class DialogBot extends ActivityHandler {
      * @param {Dialog} dialog
      * @param {any} logger object for logging events, defaults to console if none is provided
      */
-    constructor(conversationState, userState, dialog, logger) {
+    constructor(conversationState, userState, dialog, food_dialog, logger) {
         super();
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
         if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
@@ -31,14 +31,29 @@ class DialogBot extends ActivityHandler {
         this.conversationState = conversationState;
         this.userState = userState;
         this.dialog = dialog;
+        this.food_dialog = food_dialog;
         this.logger = logger;
         this.dialogState = this.conversationState.createProperty('DialogState');
 
         this.onMessage(async (context, next) => {
             this.logger.log('Running dialog with Message Activity.');
+            
+            const user_msg = context.activity.text.toLowerCase();
+            const g_options = ['g', 'pass', 'pabili'];
+            const saan_options_price = ['p', 'pp', 'ppp'];
+            const saan_options_area = ['piazza', 'upper mckinley', 'robinsons', 'tuscany'];
+            const saan_options_type = ['fast food', 'resto'];
 
             // Run the Dialog with the new message Activity.
-            await this.dialog.run(context, this.dialogState);
+            if ( user_msg == 'g' || g_options.includes(user_msg)) {
+                await this.dialog.run(context, this.dialogState);
+            }
+            else if ( user_msg == 'saan' || saan_options_price.includes(user_msg) || saan_options_area.includes(user_msg) || saan_options_type.includes(user_msg)) {
+                await this.food_dialog.run(context, this.dialogState);   
+            }
+            else {
+                await context.sendActivity('Invalid option. Valid commands are \'G\' or \'Saan\'.');
+            }
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
