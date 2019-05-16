@@ -90,7 +90,6 @@ class MainDialog extends ComponentDialog {
         console.log(stepContext)
         console.log(stepContext.result)
         console.log(stepContext.context)
-        console.log(stepContext.context.from.name)
         console.log(stepContext.context.from)
 
         switch (stepContext.result.value) {
