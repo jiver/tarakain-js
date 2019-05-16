@@ -206,7 +206,7 @@ class MainDialog extends ComponentDialog {
     }
 );
 */
-console.log(connector.fetchMembers)
+//console.log(connector.fetchMembers)
 	
 }
 
