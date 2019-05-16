@@ -98,7 +98,7 @@ class MainDialog extends ComponentDialog {
         }
 
         // Give the user instructions about what to do next
-        await stepContext.context.sendActivity('Type anything to see another card.');
+        await stepContext.context.sendActivity(stepContext.result.value);
 
         return await stepContext.endDialog();
     }
