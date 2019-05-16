@@ -37,6 +37,7 @@ class MainDialog extends ComponentDialog {
 
         this.addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
             this.choiceCardStep.bind(this)
+	    this.showCardStep.bind(this)
         ]));
 
         // The initial child Dialog to run.
@@ -112,10 +113,10 @@ class MainDialog extends ComponentDialog {
      * @param {WaterfallStepContext} stepContext
      */
     async showCardStep(stepContext) {
-        this.logger.log('MainDialog.showCardStep');
+       /* this.logger.log('MainDialog.showCardStep');
         
         //console.log(stepContext)
-        console.log(stepContext.result)
+        //console.log(stepContext.result)
         //console.log(stepContext.context)
         //console.log(stepContext.context.activity)
 		//console.log(stepContext.context.activity.from)
@@ -153,7 +154,8 @@ class MainDialog extends ComponentDialog {
         //await stepContext.context.sendActivity(stepContext.result.value);
 
         return await stepContext.endDialog();
-    }
+    }*/
+	    stepContext.context.sendActivity(this.RESULT)
 
     /**
      * Create the choices with synonyms to render for the user during the ChoicePrompt.
