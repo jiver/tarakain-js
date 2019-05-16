@@ -16,8 +16,35 @@ class UserProfile {
     }
 }
 
+const LargeWeatherCard = require('../resources/LargeWeatherCard.json');
 
+const GGG = '<at>Test</at> G';
+const PASS = '<at>Test</at> Pass';
+const PABILI = '<at>Test</at> Pabili';
 
+const CHOICE_INDEX = {
+	'<at>Test</at> G': 0,
+	'<at>Test</at> Pass': 1,
+	'<at>Test</at> Pabili': 2
+};
+
+function deepCopy(src) {
+  let target = Array.isArray(src) ? [] : {};
+  for (let key in src) {
+    let v = src[key];
+    if (v) {
+      if (typeof v === "object") {
+        target[key] = deepCopy(v);
+      } else {
+        target[key] = v;
+      }
+    } else {
+      target[key] = v;
+    }
+  }
+
+  return target;
+}
 
 class MainDialog extends ComponentDialog {
     constructor(logger) {
@@ -85,13 +112,13 @@ class MainDialog extends ComponentDialog {
 		
 		console.log(stepContext.context.activity)
 		switch (stepContext.context.activity.text) {
-        case '<at>Test</at> G':
+        case GGG:
 			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
             break;
-        case '<at>Test</at> Pass':
+        case PASS:
 			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
             break;
-        case '<at>Test</at> Pabili':
+        case PABILI:
 			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
             break;
         default:
@@ -113,6 +140,40 @@ class MainDialog extends ComponentDialog {
      * @param {WaterfallStepContext} stepContext
      */
     async showCardStep(stepContext) {
+		
+		console.log(stepContext.context.activity)
+		switch (stepContext.context.activity.text) {
+        case GGG:
+			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case PASS:
+			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case PABILI:
+			this.RESULT[stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        default:
+            break;
+        }
+		
+		var contents = deepCopy(LargeWeatherCard);
+		console.log(contents);
+		console.log(contents['body'][1]['columns'])
+		
+		for (const [key, value] of Object.entries(this.RESULT)) {
+			console.log(key, value);
+			console.log(CHOICE_INDEX);
+			console.log(CHOICE_INDEX[value]);
+			contents['body'][1]['columns'][CHOICE_INDEX[value]]['items'].push({
+                "type": "TextBlock",
+                "horizontalAlignment": "center",
+                "wrap": false,
+                "text": key
+              });
+		}
+		
+		await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(contents)] });
+		return await stepContext.endDialog();
        /* this.logger.log('MainDialog.showCardStep');
         
         //console.log(stepContext)
@@ -155,7 +216,6 @@ class MainDialog extends ComponentDialog {
 
         return await stepContext.endDialog();
     */
-	    stepContext.context.sendActivity(this.RESULT)
 	}
     /**
      * Create the choices with synonyms to render for the user during the ChoicePrompt.
@@ -164,15 +224,15 @@ class MainDialog extends ComponentDialog {
     getChoices() {
         const cardOptions = [
             {
-                value: 'G',
+                value: GGG,
                 synonyms: ['g']
             },
             {
-                value: 'Pass',
+                value: PASS,
                 synonyms: ['pass']
             },
             {
-                value: 'Pabili',
+                value: PABILI,
                 synonyms: ['pabili']
             }
         ];
