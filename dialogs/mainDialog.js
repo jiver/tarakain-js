@@ -1,8 +1,9 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-[...]
+
+/*[...]
 import * as builder from "botbuilder";
-[...]
+[...]*/
 
 const { AttachmentLayoutTypes, CardFactory } = require('botbuilder');
 const { ChoicePrompt, ComponentDialog, DialogSet, DialogTurnStatus, WaterfallDialog } = require('botbuilder-dialogs');
@@ -191,7 +192,7 @@ class MainDialog extends ComponentDialog {
         return CardFactory.adaptiveCard(AdaptiveCard);
     }
 	
-var conversationId = session.message.address.conversation.id;
+/*var conversationId = session.message.address.conversation.id;
   connector.fetchMembers(
     (<builder.IChatConnectorAddress>session.message.address).serviceUrl,
     conversationId,
@@ -204,7 +205,7 @@ var conversationId = session.message.address.conversation.id;
       }
     }
 );
-
+*/
 console.log(connector.fetchMembers)
 	
 }
