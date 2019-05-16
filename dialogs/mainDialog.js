@@ -26,7 +26,8 @@ class MainDialog extends ComponentDialog {
         ]));
 
         // The initial child Dialog to run.
-        this.initialDialogId = MAIN_WATERFALL_DIALOG;
+        //this.initialDialogId = MAIN_WATERFALL_DIALOG;
+        this.initialDialogId = 'cardPrompt'
     }
 
     /**
