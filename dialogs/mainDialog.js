@@ -58,8 +58,8 @@ class MainDialog extends ComponentDialog {
         // Create the PromptOptions which contain the prompt and re-prompt messages.
         // PromptOptions also contains the list of choices available to the user.
         const options = {
-            prompt: 'What card would you like to see? You can click or type the card name',
-            retryPrompt: 'That was not a valid choice, please select a card or number from 1 to 9.',
+            prompt: 'Tara Kain?',
+            retryPrompt: 'Paki-ayos',
             choices: this.getChoices()
         };
 
@@ -76,41 +76,21 @@ class MainDialog extends ComponentDialog {
         this.logger.log('MainDialog.showCardStep');
 
         switch (stepContext.result.value) {
-        case 'Adaptive Card':
-            await stepContext.context.sendActivity({ attachments: [this.createAdaptiveCard()] });
+        case 'G Card':
+            await stepContext.context.sendActivity({ attachments: [this.createGCard()] });
             break;
-        case 'Animation Card':
-            await stepContext.context.sendActivity({ attachments: [this.createAnimationCard()] });
+        case 'Pass Card':
+            await stepContext.context.sendActivity({ attachments: [this.createPassCard()] });
             break;
-        case 'Audio Card':
-            await stepContext.context.sendActivity({ attachments: [this.createAudioCard()] });
-            break;
-        case 'Hero Card':
-            await stepContext.context.sendActivity({ attachments: [this.createHeroCard()] });
-            break;
-        case 'Receipt Card':
-            await stepContext.context.sendActivity({ attachments: [this.createReceiptCard()] });
-            break;
-        case 'Signin Card':
-            await stepContext.context.sendActivity({ attachments: [this.createSignInCard()] });
-            break;
-        case 'Thumbnail Card':
-            await stepContext.context.sendActivity({ attachments: [this.createThumbnailCard()] });
-            break;
-        case 'Video Card':
-            await stepContext.context.sendActivity({ attachments: [this.createVideoCard()] });
+        case 'Pabili Card':
+            await stepContext.context.sendActivity({ attachments: [this.createPabiliCard()] });
             break;
         default:
             await stepContext.context.sendActivity({
                 attachments: [
-                    this.createAdaptiveCard(),
-                    this.createAnimationCard(),
-                    this.createAudioCard(),
-                    this.createHeroCard(),
-                    this.createReceiptCard(),
-                    this.createSignInCard(),
-                    this.createThumbnailCard(),
-                    this.createVideoCard()
+                    this.createGCard(),
+                    this.createPassCard(),
+                    this.createPabiliCard()
                 ],
                 attachmentLayout: AttachmentLayoutTypes.Carousel
             });
@@ -130,40 +110,16 @@ class MainDialog extends ComponentDialog {
     getChoices() {
         const cardOptions = [
             {
-                value: 'Adaptive Card',
-                synonyms: ['adaptive']
+                value: 'G',
+                synonyms: ['g']
             },
             {
-                value: 'Animation Card',
-                synonyms: ['animation']
+                value: 'Pass',
+                synonyms: ['pass']
             },
             {
-                value: 'Audio Card',
-                synonyms: ['audio']
-            },
-            {
-                value: 'Hero Card',
-                synonyms: ['hero']
-            },
-            {
-                value: 'Receipt Card',
-                synonyms: ['receipt']
-            },
-            {
-                value: 'Signin Card',
-                synonyms: ['signin']
-            },
-            {
-                value: 'Thumbnail Card',
-                synonyms: ['thumbnail', 'thumb']
-            },
-            {
-                value: 'Video Card',
-                synonyms: ['video']
-            },
-            {
-                value: 'All Cards',
-                synonyms: ['all']
+                value: 'Pabili',
+                synonyms: ['pabili']
             }
         ];
 
@@ -174,11 +130,11 @@ class MainDialog extends ComponentDialog {
     // Helper functions used to create cards.
     // ======================================
 
-    createAdaptiveCard() {
+    createGCard() {
         return CardFactory.adaptiveCard(AdaptiveCard);
     }
 
-    createAnimationCard() {
+    createPassCard() {
         return CardFactory.animationCard(
             'Microsoft Bot Framework',
             [
@@ -191,7 +147,7 @@ class MainDialog extends ComponentDialog {
         );
     }
 
-    createAudioCard() {
+    createPabiliCard() {
         return CardFactory.audioCard(
             'I am your father',
             ['https://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_yourfather.wav'],
@@ -206,99 +162,6 @@ class MainDialog extends ComponentDialog {
                 subtitle: 'Star Wars: Episode V - The Empire Strikes Back',
                 text: 'The Empire Strikes Back (also known as Star Wars: Episode V – The Empire Strikes Back) is a 1980 American epic space opera film directed by Irvin Kershner. Leigh Brackett and Lawrence Kasdan wrote the screenplay, with George Lucas writing the film\'s story and serving as executive producer. The second installment in the original Star Wars trilogy, it was produced by Gary Kurtz for Lucasfilm Ltd. and stars Mark Hamill, Harrison Ford, Carrie Fisher, Billy Dee Williams, Anthony Daniels, David Prowse, Kenny Baker, Peter Mayhew and Frank Oz.',
                 image: 'https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg'
-            }
-        );
-    }
-
-    createHeroCard() {
-        return CardFactory.heroCard(
-            'BotFramework Hero Card',
-            CardFactory.images(['https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg']),
-            CardFactory.actions([
-                {
-                    type: 'openUrl',
-                    title: 'Get started',
-                    value: 'https://docs.microsoft.com/en-us/azure/bot-service/'
-                }
-            ])
-        );
-    }
-
-    createReceiptCard() {
-        return CardFactory.receiptCard({
-            title: 'John Doe',
-            facts: [
-                {
-                    key: 'Order Number',
-                    value: '1234'
-                },
-                {
-                    key: 'Payment Method',
-                    value: 'VISA 5555-****'
-                }
-            ],
-            items: [
-                {
-                    title: 'Data Transfer',
-                    price: '$38.45',
-                    quantity: 368,
-                    image: { url: 'https://github.com/amido/azure-vector-icons/raw/master/renders/traffic-manager.png' }
-                },
-                {
-                    title: 'App Service',
-                    price: '$45.00',
-                    quantity: 720,
-                    image: { url: 'https://github.com/amido/azure-vector-icons/raw/master/renders/cloud-service.png' }
-                }
-            ],
-            tax: '$7.50',
-            total: '$90.95',
-            buttons: CardFactory.actions([
-                {
-                    type: 'openUrl',
-                    title: 'More information',
-                    value: 'https://azure.microsoft.com/en-us/pricing/details/bot-service/'
-                }
-            ])
-        });
-    }
-
-    createSignInCard() {
-        return CardFactory.signinCard(
-            'BotFramework Sign in Card',
-            'https://login.microsoftonline.com',
-            'Sign in'
-        );
-    }
-
-    createThumbnailCard() {
-        return CardFactory.thumbnailCard(
-            'BotFramework Thumbnail Card',
-            [{ url: 'https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg' }],
-            [{
-                type: 'openUrl',
-                title: 'Get started',
-                value: 'https://docs.microsoft.com/en-us/azure/bot-service/'
-            }],
-            {
-                subtitle: 'Your bots — wherever your users are talking.',
-                text: 'Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.'
-            }
-        );
-    }
-
-    createVideoCard() {
-        return CardFactory.videoCard(
-            '2018 Imagine Cup World Championship Intro',
-            [{ url: 'https://sec.ch9.ms/ch9/783d/d57287a5-185f-4df9-aa08-fcab699a783d/IC18WorldChampionshipIntro2.mp4' }],
-            [{
-                type: 'openUrl',
-                title: 'Lean More',
-                value: 'https://channel9.msdn.com/Events/Imagine-Cup/World-Finals-2018/2018-Imagine-Cup-World-Championship-Intro'
-            }],
-            {
-                subtitle: 'by Microsoft',
-                text: 'Microsoft\'s Imagine Cup has empowered student developers around the world to create and innovate on the world stage for the past 16 years. These innovations will shape how we live, work and play.'
             }
         );
     }
