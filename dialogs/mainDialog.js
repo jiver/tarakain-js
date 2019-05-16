@@ -20,7 +20,7 @@ class MainDialog extends ComponentDialog {
     constructor(logger) {
         super('MainDialog');
         
-        this.userProfile = userState.createProperty(USER_PROFILE);
+        //this.userProfile = userState.createProperty(USER_PROFILE);
 
         if (!logger) {
             logger = console;
