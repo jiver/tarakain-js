@@ -107,16 +107,8 @@ class FoodDialog extends ComponentDialog {
 		const P = 'p';
 		const PP = 'pp';
 		const PPP = 'ppp';
-        this.logger.log('MainDialog.choiceCardStep');
-
-        // Create the PromptOptions which contain the prompt and re-prompt messages.
-        // PromptOptions also contains the list of choices available to the user.
-        const options = {
-            prompt: 'Price range?',
-            retryPrompt: 'Paki-ayos',
-            choices: this.getChoices()
-        };
-		
+        this.logger.log('MainDialog.priceChoiceCardStep');
+	
 		//await stepContext.repromptDialog()
 		
 		console.log(stepContext.context.activity)
@@ -142,7 +134,6 @@ class FoodDialog extends ComponentDialog {
 		
 		console.log(this.RESULT);
 		
-		return await stepContext.prompt('cardPromptPrice', options);
     }
     
     filterJSON(budget, area, type) {
