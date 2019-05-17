@@ -57,7 +57,7 @@ class KahitSaanDialog extends ComponentDialog {
     async showCardStep(stepContext) {
         this.logger.log('MainDialog.showCardStep');
         console.log('Current directory: ' + process.cwd());
-        let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
+        let rawdata = fs.readFileSync(process.cwd() + '\/dialogs\/db.json');
         var json_file = JSON.parse(rawdata);
 
         var keys = Object.keys(json_file) 
