@@ -2,7 +2,6 @@
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "type": "AdaptiveCard",
     "version": "1.0",
-    "speak": "Weather forecast for Monday is high of 62 and low of 42 degrees with a 20% chance of rainWinds will be 5 mph from the northeast",
     "body": [
       {
         "type": "ColumnSet",
@@ -13,7 +12,7 @@
             "items": [
               {
                 "type": "Image",
-                "url": "https://i.ytimg.com/vi/0oG96Ns3JRU/maxresdefault.jpg",
+                "url": "https://ibb.co/gmGtYBm",
                 "size": "stretch"
               }
             ]
@@ -24,7 +23,7 @@
             "items": [
               {
                 "type": "TextBlock",
-                "text": "Join Status",
+                "text": "",
                 "weight": "bolder",
                 "size": "large",
                 "color": "light"
@@ -70,7 +69,7 @@
               {
                 "type": "Image",
                 "size": "large",
-                "url": "https://media.giphy.com/media/nuRXXyy020kta/giphy.gif"
+                "url": "https://media.giphy.com/media/zG1IShc84TFCw/giphy.gif"
               }
             ],
             "selectAction": {
