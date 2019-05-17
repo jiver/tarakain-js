@@ -318,8 +318,15 @@ class FoodDialog extends ComponentDialog {
         
         var majorityResults = getMajorityVote(this.RESULT);
         var filteredResults = filterJSON(majorityResults[0], majorityResults[1], majorityResults[2]);
-                
-        await stepContext.context.sendActivity(filteredResults.join(','));
+            
+        var return_msg = '';
+        if (filteredResults.length > 0) {
+            return_msg = filteredResults.join(',');
+        else {
+            return_msg = 'Waley! Masyado kang choosy!';
+        }         
+	
+        await stepContext.context.sendActivity(return_msg);
         
         return await stepContext.endDialog();
     }
