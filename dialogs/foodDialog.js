@@ -318,21 +318,83 @@ class FoodDialog extends ComponentDialog {
         
         var majorityResults = getMajorityVote(this.RESULT);
         var filteredResults = filterJSON(majorityResults[0], majorityResults[1], majorityResults[2]);
-            
+        
+	var content = {
+		  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+		  "type": "AdaptiveCard",
+		  "version": "1.0",
+		  "body": [
+		    {
+		      "type": "ColumnSet",
+		      "columns": [
+			{
+			  "type": "Column",
+			  "width": "auto",
+			  "items": [
+			    {
+			      "type": "TextBlock",
+			      "text": "Suggestions:",
+			      "weight": "bolder",
+			      "size": "large"
+			    },
+			    {
+			      "type": "TextBlock",
+			      "text": "HERE ARE THE PLACES MATCHING YOUR FILTERS",
+			      "size": "small"
+			    }
+			  ]
+			}
+		      ]
+		    },
+		    {
+		      "type": "ColumnSet",
+		      "separator": true,
+		      "columns": []
+		    }
+		  ]
+		}
+	
         var return_msg = '';
         if (filteredResults.length > 0) {
-            return_msg = filteredResults.join(',');
+	    for (var i = 0; i < filteredResults.length; i++) {
+		content['body'][1]['columns'].push({
+			  "type": "Column",
+			  "width": "25%",
+			  "items": [
+			    {
+			      "type": "Image",
+			      "size": "medium",
+			      "url": "https://media.giphy.com/media/3oKIP9Wt4MbrxwvV3W/giphy.gif",
+			      "style": "person"
+			    },
+			    {
+			      "type": "TextBlock",
+			      "horizontalAlignment": "center",
+			      "wrap": true,
+			      "size": "medium",
+			      "weight": "bolder",
+			      "text": filteredResults[i]
+			    }
+			  ]
+			});
+	    }	
 	}
         else {
             this.RESULT = {};
             this.RESULT['price'] = {};
             this.RESULT['area'] = {};
             this.RESULT['type'] = {};
-            return_msg = 'Waley! Masyado kang choosy!';
+	    content['body'][1]['columns'].push({
+			      "type": "TextBlock",
+			      "horizontalAlignment": "center",
+			      "wrap": true,
+			      "size": "medium",
+			      "weight": "bolder",
+			      "text": "'Waley! Masyado kang choosy!"
+			    });
         }         
-	
-        await stepContext.context.sendActivity(return_msg);
-        
+
+        await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(content)] });
         return await stepContext.endDialog();
     }
     
