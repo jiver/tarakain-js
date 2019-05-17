@@ -322,6 +322,7 @@ class FoodDialog extends ComponentDialog {
         var return_msg = '';
         if (filteredResults.length > 0) {
             return_msg = filteredResults.join(',');
+	}
         else {
             return_msg = 'Waley! Masyado kang choosy!';
         }         
