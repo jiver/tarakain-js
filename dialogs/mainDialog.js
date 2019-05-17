@@ -224,15 +224,15 @@ class MainDialog extends ComponentDialog {
     getChoices() {
         const cardOptions = [
             {
-                value: GGG,
+                value: 'G',
                 synonyms: ['g']
             },
             {
-                value: PASS,
+                value: 'Pass',
                 synonyms: ['pass']
             },
             {
-                value: PABILI,
+                value: 'Pabili',
                 synonyms: ['pabili']
             }
         ];
