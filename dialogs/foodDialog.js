@@ -26,7 +26,9 @@ class FoodDialog extends ComponentDialog {
             this.choiceCardStepPrice.bind(this),
 	        this.priceChoiceCardStep.bind(this),
             this.choiceCardStepArea.bind(this),
-            this.choiceCardStepType.bind(this)
+            this.areaChoiceCardStep.bind(this),
+            this.choiceCardStepType.bind(this),
+            this.typeChoiceCardStep.bind(this)
         ]));
 
         // The initial child Dialog to run.
@@ -116,7 +118,7 @@ class FoodDialog extends ComponentDialog {
 			this.RESULT['price'] = {};
 		}
 		
-		user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+		var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
         console.log(user_choice);
 		switch (user_choice) {
         case P:
@@ -134,6 +136,67 @@ class FoodDialog extends ComponentDialog {
 		
 		console.log(this.RESULT);
 		
+    }
+    async areaChoiceCardStep(stepContext) {
+        const Piazza = 'piazza';
+        const Tuscany = 'tuscany';
+        const Rob = 'rob';
+        this.logger.log('MainDialog.areachoiceCardStep');
+        
+        //await stepContext.repromptDialog()
+
+        console.log(stepContext.context.activity);
+        if (!this.RESULT || Object.keys(this.RESULT).length == 0) {
+            this.RESULT['area'] = {};
+        }
+
+        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+        console.log(user_choice);
+        
+        switch (user_choice) {
+        case Piazza:
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case Tuscany:
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case Rob:
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        default:
+            break;
+        }
+        
+        console.log(this.RESULT);
+        
+    }
+    
+    async typeChoiceCardStep(stepContext) {
+        const FastFood = 'Fast food';
+        const Resto = 'Resto';
+        this.logger.log('MainDialog.pricechoiceCardStep');
+        
+        //await stepContext.repromptDialog()
+        
+        console.log(stepContext.context.activity);
+        if (!this.RESULT || Object.keys(this.RESULT).length == 0) {
+            this.RESULT['type'] = {};
+        }
+        
+        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+        console.log(user_choice);
+        switch (user_choice) {
+        case FastFood:
+            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case Resto:
+            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        default:
+            break;
+        }
+        
+        console.log(this.RESULT);
     }
     
     filterJSON(budget, area, type) {
