@@ -19,7 +19,9 @@ class FoodDialog extends ComponentDialog {
         this.logger = logger;
         
         // Define the main dialog and its related components.
-        this.addDialog(new ChoicePrompt('cardPrompt'));
+        this.addDialog(new ChoicePrompt('cardPromptPrice'));
+	this.addDialog(new ChoicePrompt('cardPromptArea'));
+	this.addDialog(new ChoicePrompt('cardPromptType'));
         this.addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
             this.choiceCardStepPrice.bind(this),
             this.choiceCardStepArea.bind(this),
@@ -65,7 +67,7 @@ class FoodDialog extends ComponentDialog {
         };
 
         // Prompt the user with the configured PromptOptions.
-        return await stepContext.prompt('cardPrompt', options);
+        return await stepContext.prompt('cardPromptPrice', options);
     }
     async choiceCardStepArea(stepContext) {
         this.logger.log('MainDialog.choiceCardStep');
@@ -79,7 +81,7 @@ class FoodDialog extends ComponentDialog {
         };
 
         // Prompt the user with the configured PromptOptions.
-        return await stepContext.prompt('cardPrompt', options);
+        return await stepContext.prompt('cardPromptArea', options);
     }
     async choiceCardStepType(stepContext) {
         this.logger.log('MainDialog.choiceCardStep');
@@ -93,35 +95,35 @@ class FoodDialog extends ComponentDialog {
         };
 
         // Prompt the user with the configured PromptOptions.
-        return await stepContext.prompt('cardPrompt', options);
+        return await stepContext.prompt('cardPromptType', options);
     }
     
     async filterJSON(budget, area, type) {
 		console.log('Current directory: ' + process.cwd());
 		let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
 		var json_file = JSON.parse(rawdata);
-	    	budget = budget.toLowerCase();
-	    	area = area.toLowerCase();
-	    	type = type.toLowerCase();
-		
+		budget = budget.toLowerCase();
+		area = area.toLowerCase();
+		type = type.toLowerCase();
+
 		if (!budget) {
 			budget = 'ppp';
 		}
-		
+
 		if (!area) {
 			area = ['piazza', 'upper mckinley', 'tuscany', 'rob']
 		}
 		else {
 			area = [area]
 		}
-		
+
 		if (!type) {
 			type = ['resto', 'fast food']
 		}
 		else {
 			type = [type]
 		}
-		
+
 		for (var key in json_file) {
 			if (json_file.hasOwnProperty(key)) {
 				var json_budget = json_file[key].Budget.toLowerCase();
@@ -133,12 +135,10 @@ class FoodDialog extends ComponentDialog {
 							console.log(key + " -> " + json_file[key].Budget + "\n\t" + json_file[key].Area + "\n\t" + json_file[key].Type);
 						}
 					}
-					
 				}
-				
 			}
-		}
-	}
+        }
+    }	
 
     
     /**
