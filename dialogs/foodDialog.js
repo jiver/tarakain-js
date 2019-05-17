@@ -167,10 +167,6 @@ class FoodDialog extends ComponentDialog {
     getChoicesArea() {
         const cardOptions = [
             {
-                value: 'Upper Mckinley',
-                synonyms: ['upper_mck']
-            },
-            {
                 value: 'Piazza',
                 synonyms: ['piazza']
             },
