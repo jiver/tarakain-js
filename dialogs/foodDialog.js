@@ -106,37 +106,37 @@ class FoodDialog extends ComponentDialog {
     }
     
     async priceChoiceCardStep(stepContext) {
-		const P = 'p';
-		const PP = 'pp';
-		const PPP = 'ppp';
+        const P = 'p';
+        const PP = 'pp';
+        const PPP = 'ppp';
         this.logger.log('MainDialog.priceChoiceCardStep');
-	
-		//await stepContext.repromptDialog()
-		
-		console.log(stepContext.context.activity)
-		if (!this.RESULT || Object.keys(this.RESULT).length == 0) {
-			this.RESULT['price'] = {};
-		}
-		
-		var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+    
+        //await stepContext.repromptDialog()
+        
+        console.log(stepContext.context.activity)
+        if (!this.RESULT || Object.keys(this.RESULT).length == 0) {
+            this.RESULT['price'] = {};
+        }
+        
+        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
         console.log(user_choice);
-		switch (user_choice) {
+        switch (user_choice) {
         case P:
-			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         case PP:
-			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         case PPP:
-			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         default:
             break;
         }
-		
-		console.log(this.RESULT);
+        
+        console.log(this.RESULT);
         return await stepContext.next();
-		
+        
     }
     async areaChoiceCardStep(stepContext) {
         const Piazza = 'piazza';
@@ -156,13 +156,13 @@ class FoodDialog extends ComponentDialog {
         
         switch (user_choice) {
         case Piazza:
-            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         case Tuscany:
-            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         case Rob:
-            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         default:
             break;
@@ -189,10 +189,10 @@ class FoodDialog extends ComponentDialog {
         console.log(user_choice);
         switch (user_choice) {
         case FastFood:
-            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         case Resto:
-            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
             break;
         default:
             break;
