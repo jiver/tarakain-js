@@ -100,20 +100,23 @@ class FoodDialog extends ComponentDialog {
 		console.log('Current directory: ' + process.cwd());
 		let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
 		var json_file = JSON.parse(rawdata);
+	    	budget = budget.toLowerCase();
+	    	area = area.toLowerCase();
+	    	type = type.toLowerCase();
 		
 		if (!budget) {
-			budget = 'PPP';
+			budget = 'ppp';
 		}
 		
 		if (!area) {
-			area = ['Piazza', 'Upper Mckinley', 'Tuscany', 'Rob']
+			area = ['piazza', 'upper mckinley', 'tuscany', 'rob']
 		}
 		else {
 			area = [area]
 		}
 		
 		if (!type) {
-			type = ['Resto', 'Fast food']
+			type = ['resto', 'fast food']
 		}
 		else {
 			type = [type]
@@ -121,9 +124,12 @@ class FoodDialog extends ComponentDialog {
 		
 		for (var key in json_file) {
 			if (json_file.hasOwnProperty(key)) {
-				if (json_file[key].Budget == budget || json_file[key].Budget.indexOf(budget)) {
-					if (area.indexOf(json_file[key].Area) >= 0) {
-						if (type.indexOf(json_file[key].Type) >= 0) {
+				var json_budget = json_file[key].Budget.toLowerCase();
+				var json_area = json_file[key].Area.toLowerCase();
+				var json_type = json_file[key].Type.toLowerCase();
+				if (json_budget == budget || json_budget.indexOf(budget)) {
+					if (area.indexOf(json_area) >= 0) {
+						if (type.indexOf(json_type) >= 0) {
 							console.log(key + " -> " + json_file[key].Budget + "\n\t" + json_file[key].Area + "\n\t" + json_file[key].Type);
 						}
 					}
