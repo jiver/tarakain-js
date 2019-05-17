@@ -175,11 +175,11 @@ class MainDialog extends ComponentDialog {
 		await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(contents)] });
 	    	//await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(AdaptiveCard)] });
 		return await stepContext.endDialog();
-       /* this.logger.log('MainDialog.showCardStep');
+       /* this.logger.log('MainDialog.showCardStep');*/
         
-        //console.log(stepContext)
-        //console.log(stepContext.result)
-        //console.log(stepContext.context)
+        console.log(stepContext)
+        console.log(stepContext.result)
+        /*//console.log(stepContext.context)
         //console.log(stepContext.context.activity)
 		//console.log(stepContext.context.activity.from)
 		//console.log(stepContext.context.activity.from.name)
