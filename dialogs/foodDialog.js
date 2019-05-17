@@ -324,6 +324,10 @@ class FoodDialog extends ComponentDialog {
             return_msg = filteredResults.join(',');
 	}
         else {
+            this.RESULT = {};
+            this.RESULT['price'] = {};
+            this.RESULT['area'] = {};
+            this.RESULT['type'] = {};
             return_msg = 'Waley! Masyado kang choosy!';
         }         
 	
