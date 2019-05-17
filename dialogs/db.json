@@ -153,7 +153,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Science Hub"
+      "Area": "Robinsons"
    },
    "Fish & Co.": {
       "Budget": "PPP",
@@ -207,7 +207,7 @@
       "Budget": "P",
       "Time": "1hr",
       "Type": "Resto",
-      "Area": "Science Hub"
+      "Area": "Robinsons"
    },
    "Kuya J": {
       "Budget": "PPP",
@@ -225,7 +225,7 @@
       "Budget": "PP",
       "Time": "1hr",
       "Type": "Fast food",
-      "Area": "Science Hub"
+      "Area": "Robinsons"
    },
    "Mann Hann": {
       "Budget": "PP",
