@@ -40,11 +40,8 @@ class DialogBot extends ActivityHandler {
             
             var user_msg = context.activity.text.toLowerCase();
             user_msg = user_msg.trim();
-            console.log('other text' + user_msg);
             user_msg = user_msg.replace('<at>tara kain</at> ', '');
-            console.log('other text' + user_msg);
-            console.log('g');
-            console.log(user_msg == 'g');
+            user_msg = user_msg.replace('<at>test</at> ', '');
             const g_options = ['g', 'pass', 'pabili'];
             const saan_options_price = ['p', 'pp', 'ppp'];
             const saan_options_area = ['piazza', 'upper mckinley', 'robinsons', 'tuscany'];
