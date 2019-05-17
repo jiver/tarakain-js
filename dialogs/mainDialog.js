@@ -172,8 +172,8 @@ class MainDialog extends ComponentDialog {
               });
 		}
 		
-		//await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(contents)] });
-	    	await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(AdaptiveCard)] });
+		await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(contents)] });
+	    	//await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(AdaptiveCard)] });
 		return await stepContext.endDialog();
        /* this.logger.log('MainDialog.showCardStep');
         
