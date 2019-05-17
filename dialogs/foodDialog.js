@@ -20,8 +20,8 @@ class FoodDialog extends ComponentDialog {
         
         // Define the main dialog and its related components.
         this.addDialog(new ChoicePrompt('cardPromptPrice'));
-	this.addDialog(new ChoicePrompt('cardPromptArea'));
-	this.addDialog(new ChoicePrompt('cardPromptType'));
+	    this.addDialog(new ChoicePrompt('cardPromptArea'));
+	    this.addDialog(new ChoicePrompt('cardPromptType'));
         this.addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
             this.choiceCardStepPrice.bind(this),
             this.choiceCardStepArea.bind(this),
@@ -30,6 +30,10 @@ class FoodDialog extends ComponentDialog {
 
         // The initial child Dialog to run.
         this.initialDialogId = MAIN_WATERFALL_DIALOG;
+		this.RESULT = {};
+		this.RESULT['price'] = {};
+		this.RESULT['area'] = {};
+		this.RESULT['type'] = {};
     }
 
     /**
@@ -96,6 +100,47 @@ class FoodDialog extends ComponentDialog {
 
         // Prompt the user with the configured PromptOptions.
         return await stepContext.prompt('cardPromptType', options);
+    }
+    
+    async priceChoiceCardStep(stepContext) {
+		const P = 'p';
+		const PP = 'pp';
+		const PPP = 'ppp';
+        this.logger.log('MainDialog.choiceCardStep');
+
+        // Create the PromptOptions which contain the prompt and re-prompt messages.
+        // PromptOptions also contains the list of choices available to the user.
+        const options = {
+            prompt: 'Price range?',
+            retryPrompt: 'Paki-ayos',
+            choices: this.getChoices()
+        };
+		
+		//await stepContext.repromptDialog()
+		
+		console.log(stepContext.context.activity)
+		if (!this.RESULT || Object.keys(this.RESULT).length == 0) {
+			this.RESULT['price'] = {};
+		}
+		
+		user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+		switch (user_choice) {
+        case P:
+			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case PP:
+			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        case PPP:
+			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
+            break;
+        default:
+            break;
+        }
+		
+		console.log(this.RESULT);
+		
+		return await stepContext.prompt('cardPromptPrice', options);
     }
     
     filterJSON(budget, area, type) {
