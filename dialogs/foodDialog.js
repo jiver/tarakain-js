@@ -135,6 +135,7 @@ class FoodDialog extends ComponentDialog {
         }
 		
 		console.log(this.RESULT);
+        return await stepContext.next();
 		
     }
     async areaChoiceCardStep(stepContext) {
@@ -168,6 +169,7 @@ class FoodDialog extends ComponentDialog {
         }
         
         console.log(this.RESULT);
+        return await stepContext.next();
         
     }
     
@@ -197,6 +199,7 @@ class FoodDialog extends ComponentDialog {
         }
         
         console.log(this.RESULT);
+        return await stepContext.next();
     }
     
     filterJSON(budget, area, type) {
