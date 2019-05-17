@@ -2,7 +2,6 @@
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "type": "AdaptiveCard",
     "version": "1.0",
-    "backgroundImage": "https://cdn2.vectorstock.com/i/1000x1000/49/06/cute-food-background-kawaii-cartoons-vector-20294906.jpg",
     "body": [
       {
         "type": "ColumnSet",
