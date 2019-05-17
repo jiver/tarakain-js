@@ -14,7 +14,7 @@
               {
                 "type": "Image",
                 "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png",
-                "size": "large"
+                "size": "stretch"
               }
             ]
           },
