@@ -6,7 +6,7 @@ const { ChoicePrompt, ComponentDialog, DialogSet, DialogTurnStatus, WaterfallDia
 const AdaptiveCard = require('../resources/adaptiveCard.json');
 
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
-
+const fs = require('fs');
     
 function filterJSON(budget, area, type) {
     console.log('Current directory: ' + process.cwd());
