@@ -201,6 +201,17 @@ class FoodDialog extends ComponentDialog {
         console.log(this.RESULT);
         return await stepContext.next();
     }
+	
+    async showCardStep(stepContext) {
+        this.logger.log('MainDialog.showCardStep');
+        
+        var majorityResults = getMajorityVote(this.RESULT);
+        var filteredResults = filterJson(majorityResults[0], majorityResults[1], majorityResults[2]);
+                
+        await stepContext.context.sendActivity(filteredResults.join(','));
+        
+        return await stepContext.endDialog();
+    }
     
     filterJSON(budget, area, type) {
         console.log('Current directory: ' + process.cwd());
