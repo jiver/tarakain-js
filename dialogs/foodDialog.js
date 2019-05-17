@@ -628,5 +628,4 @@ class FoodDialog extends ComponentDialog {
         );
     }
 }
-
 module.exports.FoodDialog = FoodDialog;
