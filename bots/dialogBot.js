@@ -18,7 +18,7 @@ class DialogBot extends ActivityHandler {
      * @param {Dialog} dialog
      * @param {any} logger object for logging events, defaults to console if none is provided
      */
-    constructor(conversationState, userState, dialog, food_dialog, logger) {
+    constructor(conversationState, userState, dialog, food_dialog, kahit_saan_dialog, logger) {
         super();
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
         if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
@@ -32,6 +32,7 @@ class DialogBot extends ActivityHandler {
         this.userState = userState;
         this.dialog = dialog;
         this.food_dialog = food_dialog;
+        this.kahit_saan_dialog = kahit_saan_dialog;
         this.logger = logger;
         this.dialogState = this.conversationState.createProperty('DialogState');
 
@@ -53,6 +54,9 @@ class DialogBot extends ActivityHandler {
             }
             else if ( user_msg == 'saan' || saan_options_price.includes(user_msg) || saan_options_area.includes(user_msg) || saan_options_type.includes(user_msg)) {
                 await this.food_dialog.run(context, this.dialogState);   
+            }
+            else if ( user_msg == 'kahitsaan' ) {
+                await this.kahit_saan_dialog.run(context, this.dialogState);   
             }
             else {
                 await context.sendActivity('Invalid option. Valid commands are \'G\' or \'Saan\'.');
