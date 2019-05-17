@@ -385,13 +385,19 @@ class FoodDialog extends ComponentDialog {
             this.RESULT['area'] = {};
             this.RESULT['type'] = {};
 	    content['body'][1]['columns'].push({
+			  "type": "Column",
+			  "width": "25%",
+			  "items": [
+			    {
 			      "type": "TextBlock",
 			      "horizontalAlignment": "center",
 			      "wrap": true,
 			      "size": "medium",
 			      "weight": "bolder",
 			      "text": "'Waley! Masyado kang choosy!"
-			    });
+			    }
+			  ]
+			});
         }         
 
         await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(content)] });
