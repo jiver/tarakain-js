@@ -18,14 +18,14 @@ class UserProfile {
 
 const LargeWeatherCard = require('../resources/LargeWeatherCard.json');
 
-const GGG = '<at>Test</at> G';
-const PASS = '<at>Test</at> Pass';
-const PABILI = '<at>Test</at> Pabili';
+const GGG = '<at>Tara Kain</at> G';
+const PASS = '<at>Tara Kain</at> Pass';
+const PABILI = '<at>Tara Kain</at> Pabili';
 
 const CHOICE_INDEX = {
-	'<at>Test</at> G': 0,
-	'<at>Test</at> Pass': 1,
-	'<at>Test</at> Pabili': 2
+	'<at>Tara Kain</at> G': 0,
+	'<at>Tara Kain</at> Pass': 1,
+	'<at>Tara Kain</at> Pabili': 2
 };
 
 function deepCopy(src) {
