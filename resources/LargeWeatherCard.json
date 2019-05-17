@@ -2,7 +2,7 @@
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "type": "AdaptiveCard",
     "version": "1.0",
-    "backgroundImage": "http://adaptivecards.io/content/Mostly%20Cloudy-Background-Dark.jpg",
+    "backgroundImage": "https://www.kawalingpinoy.com/wp-content/uploads/2014/11/crispy-sisig-2.jpg",
     "body": [
       {
         "type": "ColumnSet",
