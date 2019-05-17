@@ -98,7 +98,7 @@ class KahitSaanDialog extends ComponentDialog {
               }
             ]
           };
-        await stepContext.context.sendActivity(response);
+        await stepContext.context.sendActivity({ attachments: [CardFactory.adaptiveCard(response)] });
         
         return await stepContext.endDialog();
     }
