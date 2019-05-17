@@ -99,47 +99,86 @@ class FoodDialog extends ComponentDialog {
     }
     
     async filterJSON(budget, area, type) {
-		console.log('Current directory: ' + process.cwd());
-		let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
-		var json_file = JSON.parse(rawdata);
-		budget = budget.toLowerCase();
-		area = area.toLowerCase();
-		type = type.toLowerCase();
+        console.log('Current directory: ' + process.cwd());
+        let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
+        var json_file = JSON.parse(rawdata);
+        budget = budget.toLowerCase();
+        area = area.toLowerCase();
+        type = type.toLowerCase();
 
-		if (!budget) {
-			budget = 'ppp';
-		}
-
-		if (!area) {
-			area = ['piazza', 'upper mckinley', 'tuscany', 'rob']
-		}
-		else {
-			area = [area]
-		}
-
-		if (!type) {
-			type = ['resto', 'fast food']
-		}
-		else {
-			type = [type]
-		}
-
-		for (var key in json_file) {
-			if (json_file.hasOwnProperty(key)) {
-				var json_budget = json_file[key].Budget.toLowerCase();
-				var json_area = json_file[key].Area.toLowerCase();
-				var json_type = json_file[key].Type.toLowerCase();
-				if (json_budget == budget || json_budget.indexOf(budget)) {
-					if (area.indexOf(json_area) >= 0) {
-						if (type.indexOf(json_type) >= 0) {
-							console.log(key + " -> " + json_file[key].Budget + "\n\t" + json_file[key].Area + "\n\t" + json_file[key].Type);
-						}
-					}
-				}
-			}
+        if (!budget) {
+            budget = 'ppp';
         }
-    }	
 
+        if (!area) {
+            area = ['piazza', 'upper mckinley', 'tuscany', 'rob']
+        }
+        else {
+            area = [area]
+        }
+
+        if (!type) {
+            type = ['resto', 'fast food']
+        }
+        else {
+            type = [type]
+        }
+        
+        var filtered_list = [];
+        for (var key in json_file) {
+            if (json_file.hasOwnProperty(key)) {
+                var json_budget = json_file[key].Budget.toLowerCase();
+                var json_area = json_file[key].Area.toLowerCase();
+                var json_type = json_file[key].Type.toLowerCase();
+                if (json_budget == budget || json_budget.indexOf(budget)) {
+                    if (area.indexOf(json_area) >= 0) {
+                        if (type.indexOf(json_type) >= 0) {
+                            console.log(key + " -> " + json_file[key].Budget + "\n\t" + json_file[key].Area + "\n\t" + json_file[key].Type);
+                            filtered_list.push(key);
+                        }
+                    }
+                }
+            }
+        }
+
+        return filtered_list;
+    }
+
+    async getMajorityVote(json_file) {
+        
+        // defaults:
+        var majority_price = "PPP";
+        var majority_area = '';
+        var majority_type = '';
+        
+        var majority_price_count = 0;
+        var majority_area_count = 0;
+        var majority_type_count = 0;
+        
+        for (var choice in json_file['price']) {
+            if (json_file['price'][choice].length > majority_price_count) {
+                majority_price = choice;
+                majority_price_count = json_file['price'][choice].length;
+            }
+        }
+        
+        for (var choice in json_file['area']) {
+            if (json_file['area'][choice].length > majority_area_count) {
+                majority_area = choice;
+                majority_area_count = json_file['area'][choice].length;
+            }
+        }
+        
+        for (var choice in json_file['type']) {
+            if (json_file['type'][choice].length > majority_type_count) {
+                majority_type = choice;
+                majority_type_count = json_file['type'][choice].length;
+            }
+        }
+        
+        return [majority_price, majority_area, majority_type];
+        
+    }
     
     /**
      * Create the choices with synonyms to render for the user during the ChoicePrompt.
