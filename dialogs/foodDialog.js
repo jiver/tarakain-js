@@ -70,7 +70,7 @@ function filterJSON(budget, area, type) {
 function getMajorityVote(vote_results) {
 
     // defaults:
-    var majority_price = "PPP";
+    var majority_price = "ppp";
     var majority_area = '';
     var majority_type = '';
 
@@ -104,7 +104,7 @@ function getMajorityVote(vote_results) {
             majority_price_count = price_count_map[option];
         }
         else if (price_count_map[option] == majority_price_count) {
-            if (majority_price.length < option) {
+            if (majority_price.length < option.length) {
                 majority_price = option;
             }
 		}
@@ -131,7 +131,11 @@ function getMajorityVote(vote_results) {
 			majority_type = majority_type.concat(option);
 		}
     }
-
+    
+    console.log("Winning vote:");
+    console.log("\t" + majority_price);
+    console.log("\t" + majority_area);
+    console.log("\t" + majority_type);
     return [majority_price, majority_area, majority_type];
 }
 
