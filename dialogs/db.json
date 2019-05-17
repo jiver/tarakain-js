@@ -57,7 +57,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Bridge": {
       "Budget": "P",
@@ -141,7 +141,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Empire Bar": {
       "Budget": "PP",
@@ -195,7 +195,7 @@
       "Budget": "PP",
       "Time": "1hr",
       "Type": "Resto",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "KFC": {
       "Budget": "P",
@@ -219,7 +219,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Malcom's Burger ": {
       "Budget": "PP",
@@ -273,7 +273,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Namba": {
       "Budget": "PP",
@@ -297,7 +297,7 @@
       "Budget": "PP",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Peri peri": {
       "Budget": "PP",
@@ -345,7 +345,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Rufo's": {
       "Budget": "PP",
@@ -357,7 +357,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Sauceria": {
       "Budget": "P",
@@ -369,7 +369,7 @@
       "Budget": "P",
       "Time": "30m",
       "Type": "Fast food",
-      "Area": "Rob"
+      "Area": "Robinsons"
    },
    "Seafood City": {
       "Budget": "PPP",
