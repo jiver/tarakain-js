@@ -31,14 +31,15 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-		"size": "large",
-		"weight": "bolder",
+		            "size": "large",
+		            "weight": "bolder",
                 "text": "G"
               },
               {
                 "type": "Image",
                 "size": "large",
-                "url": "https://media.giphy.com/media/zG1IShc84TFCw/giphy.gif"
+                "url": "https://media.giphy.com/media/zG1IShc84TFCw/giphy.gif",
+                "style": "person"
               }
             ],
             "selectAction": {
@@ -62,7 +63,8 @@
               {
                 "type": "Image",
                 "size": "large",
-                "url": "https://media.giphy.com/media/8vUEXZA2me7vnuUvrs/giphy.gif"
+                "url": "https://media.giphy.com/media/8vUEXZA2me7vnuUvrs/giphy.gif",
+                "style": "person"
               }
             ],
             "selectAction": {
@@ -86,7 +88,8 @@
               {
                 "type": "Image",
                 "size": "large",
-                "url": "https://media.giphy.com/media/I1nwVpCaB4k36/giphy.gif"
+                "url": "https://media.giphy.com/media/I1nwVpCaB4k36/giphy.gif",
+                "style": "person"
               }
             ],
             "selectAction": {
