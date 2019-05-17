@@ -136,10 +136,10 @@ class FoodDialog extends ComponentDialog {
 
         // The initial child Dialog to run.
         this.initialDialogId = MAIN_WATERFALL_DIALOG;
-		this.RESULT = {};
-		this.RESULT['price'] = {};
-		this.RESULT['area'] = {};
-		this.RESULT['type'] = {};
+        this.RESULT = {};
+        this.RESULT['price'] = {};
+        this.RESULT['area'] = {};
+        this.RESULT['type'] = {};
     }
 
     /**
@@ -151,6 +151,14 @@ class FoodDialog extends ComponentDialog {
     async run(turnContext, accessor) {
         const dialogSet = new DialogSet(accessor);
         dialogSet.add(this);
+        
+        var user_msg = turnContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '').trim();
+        if ( user_msg == 'saan' ) {
+            this.RESULT = {};
+            this.RESULT['price'] = {};
+            this.RESULT['area'] = {};
+            this.RESULT['type'] = {};
+        }
 
         const dialogContext = await dialogSet.createContext(turnContext);
         const results = await dialogContext.continueDialog();
