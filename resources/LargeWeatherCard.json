@@ -2,7 +2,7 @@
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "type": "AdaptiveCard",
     "version": "1.0",
-    "backgroundImage": "https://www.kawalingpinoy.com/wp-content/uploads/2014/11/crispy-sisig-2.jpg",
+    "backgroundImage": "https://cdn2.vectorstock.com/i/1000x1000/49/06/cute-food-background-kawaii-cartoons-vector-20294906.jpg",
     "body": [
       {
         "type": "ColumnSet",
@@ -15,37 +15,6 @@
                 "type": "Image",
                 "url": "https://i.ibb.co/Xj9FHvj/tarakain.png",
                 "size": "stretch"
-              }
-            ]
-          },
-          {
-            "type": "Column",
-            "width": "auto",
-            "items": [
-              {
-                "type": "TextBlock",
-                "text": "",
-                "weight": "bolder",
-                "size": "large",
-                "color": "light"
-              },
-              {
-                "type": "TextBlock",
-                "text": "",
-                "size": "medium",
-                "spacing": "none"
-              },
-              {
-                "type": "TextBlock",
-                "isSubtle": true,
-                "text": "",
-                "spacing": "none"
-              },
-              {
-                "type": "TextBlock",
-                "isSubtle": true,
-                "text": "",
-                "spacing": "none"
               }
             ]
           }
