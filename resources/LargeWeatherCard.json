@@ -14,7 +14,7 @@
               {
                 "type": "Image",
                 "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png",
-                "size": "stretch"
+                "size": "medium"
               }
             ]
           },
@@ -69,7 +69,7 @@
               {
                 "type": "Image",
                 "size": "small",
-                "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png"
+                "url": "https://media.giphy.com/media/nuRXXyy020kta/giphy.gif"
               }
             ],
             "selectAction": {
@@ -93,7 +93,7 @@
               {
                 "type": "Image",
                 "size": "small",
-                "url": "http://adaptivecards.io/content/Drizzle-Square.png"
+                "url": "https://media.giphy.com/media/wYyTHMm50f4Dm/giphy.gif"
               }
             ],
             "selectAction": {
@@ -117,7 +117,7 @@
               {
                 "type": "Image",
                 "size": "small",
-                "url": "http://adaptivecards.io/content/Mostly%20Cloudy-Square.png"
+                "url": "https://media.giphy.com/media/I1nwVpCaB4k36/giphy.gif"
               }
             ],
             "selectAction": {
