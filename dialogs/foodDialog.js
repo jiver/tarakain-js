@@ -98,9 +98,9 @@ class FoodDialog extends ComponentDialog {
         return await stepContext.prompt('cardPromptType', options);
     }
     
-    async filterJSON(budget, area, type) {
+    filterJSON(budget, area, type) {
         console.log('Current directory: ' + process.cwd());
-        let rawdata = fs.readFileSync(process.cwd() + '\\dialogs\\db.json');
+        let rawdata = fs.readFileSync(process.cwd() + '\/dialogs\/db.json');
         var json_file = JSON.parse(rawdata);
         budget = budget.toLowerCase();
         area = area.toLowerCase();
@@ -144,7 +144,7 @@ class FoodDialog extends ComponentDialog {
         return filtered_list;
     }
 
-    async getMajorityVote(json_file) {
+    getMajorityVote(vote_results) {
         
         // defaults:
         var majority_price = "PPP";
@@ -155,29 +155,48 @@ class FoodDialog extends ComponentDialog {
         var majority_area_count = 0;
         var majority_type_count = 0;
         
-        for (var choice in json_file['price']) {
-            if (json_file['price'][choice].length > majority_price_count) {
-                majority_price = choice;
-                majority_price_count = json_file['price'][choice].length;
+        var price_count_map = {};
+        var area_count_map = {};
+        var type_count_map = {};
+        
+        for (var user in vote_results['price']) {
+            var price_option = vote_results['price'][user];
+            price_count_map[price_option] = (price_count_map[price_option] || 0) + 1;
+        }
+        
+        for (var user in vote_results['area']) {
+            var area_option = vote_results['area'][user];
+            area_count_map[area_option] = (area_count_map[area_option] || 0) + 1;
+        }
+        
+        for (var user in vote_results['type']) {
+            var type_option = vote_results['type'][user];
+            type_count_map[type_option] = (type_count_map[type_option] || 0) + 1;
+        }
+        
+        // Now get the majority
+        for ( var option in price_count_map ) {
+            if (price_count_map[option] > majority_price_count) {
+                majority_price = option;
+                majority_price_count = price_count_map[option];
             }
         }
         
-        for (var choice in json_file['area']) {
-            if (json_file['area'][choice].length > majority_area_count) {
-                majority_area = choice;
-                majority_area_count = json_file['area'][choice].length;
+        for ( var option in area_count_map ) {
+            if (area_count_map[option] > majority_area_count) {
+                majority_area = option;
+                majority_area_count = area_count_map[option];
             }
         }
         
-        for (var choice in json_file['type']) {
-            if (json_file['type'][choice].length > majority_type_count) {
-                majority_type = choice;
-                majority_type_count = json_file['type'][choice].length;
+        for ( var option in type_count_map ) {
+            if (type_count_map[option] > majority_type_count) {
+                majority_type = option;
+                majority_type_count = type_count_map[option];
             }
         }
-        
+           
         return [majority_price, majority_area, majority_type];
-        
     }
     
     /**
