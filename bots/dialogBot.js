@@ -43,7 +43,7 @@ class DialogBot extends ActivityHandler {
             user_msg = user_msg.trim();
             user_msg = user_msg.replace('<at>tara kain</at> ', '');
             user_msg = user_msg.replace('<at>test</at> ', '');
-            const g_options = ['g', 'pass', 'pabili'];
+            const g_options = ['gora', 'pass', 'pabili'];
             const saan_options_price = ['p', 'pp', 'ppp'];
             const saan_options_area = ['piazza', 'robinsons', 'tuscany'];
             const saan_options_type = ['fast food', 'resto'];
