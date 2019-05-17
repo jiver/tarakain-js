@@ -8,6 +8,13 @@ const AdaptiveCard = require('../resources/adaptiveCard.json');
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const fs = require('fs');
     
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
 function filterJSON(budget, area, type) {
     console.log('Current directory: ' + process.cwd());
     let rawdata = fs.readFileSync(process.cwd() + '\/dialogs\/db.json');
@@ -328,6 +335,11 @@ class FoodDialog extends ComponentDialog {
         
         var majorityResults = getMajorityVote(this.RESULT);
         var filteredResults = filterJSON(majorityResults[0], majorityResults[1], majorityResults[2]);
+        
+        var randIndex = getRandomInt(0, filteredResults.length - 6);
+        
+        filteredResults = filteredResults.slice(randIndex, randIndex + 5);
+        
         
 	var content = {
 		  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
