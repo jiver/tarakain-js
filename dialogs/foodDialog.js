@@ -309,7 +309,7 @@ class FoodDialog extends ComponentDialog {
         this.logger.log('MainDialog.showCardStep');
         
         var majorityResults = getMajorityVote(this.RESULT);
-        var filteredResults = filterJson(majorityResults[0], majorityResults[1], majorityResults[2]);
+        var filteredResults = filterJSON(majorityResults[0], majorityResults[1], majorityResults[2]);
                 
         await stepContext.context.sendActivity(filteredResults.join(','));
         
