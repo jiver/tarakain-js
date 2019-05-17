@@ -24,6 +24,7 @@ class FoodDialog extends ComponentDialog {
 	    this.addDialog(new ChoicePrompt('cardPromptType'));
         this.addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
             this.choiceCardStepPrice.bind(this),
+	        this.priceChoiceCardStep.bind(this),
             this.choiceCardStepArea.bind(this),
             this.choiceCardStepType.bind(this)
         ]));
