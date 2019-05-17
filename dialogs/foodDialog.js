@@ -118,17 +118,17 @@ class FoodDialog extends ComponentDialog {
             this.RESULT['price'] = {};
         }
         
-        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
         console.log(user_choice);
         switch (user_choice) {
         case P:
-            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         case PP:
-            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         case PPP:
-            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         default:
             break;
@@ -151,18 +151,18 @@ class FoodDialog extends ComponentDialog {
             this.RESULT['area'] = {};
         }
 
-        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
         console.log(user_choice);
         
         switch (user_choice) {
         case Piazza:
-            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         case Tuscany:
-            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         case Rob:
-            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['area'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         default:
             break;
@@ -185,14 +185,14 @@ class FoodDialog extends ComponentDialog {
             this.RESULT['type'] = {};
         }
         
-        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+        var user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
         console.log(user_choice);
         switch (user_choice) {
         case FastFood:
-            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         case Resto:
-            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+            this.RESULT['type'][stepContext.context.activity.from.name] = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '');
             break;
         default:
             break;
