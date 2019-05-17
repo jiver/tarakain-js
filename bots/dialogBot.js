@@ -44,7 +44,7 @@ class DialogBot extends ActivityHandler {
             user_msg = user_msg.replace('<at>test</at> ', '');
             const g_options = ['g', 'pass', 'pabili'];
             const saan_options_price = ['p', 'pp', 'ppp'];
-            const saan_options_area = ['piazza', 'upper mckinley', 'robinsons', 'tuscany'];
+            const saan_options_area = ['piazza', 'robinsons', 'tuscany'];
             const saan_options_type = ['fast food', 'resto'];
 
             // Run the Dialog with the new message Activity.
