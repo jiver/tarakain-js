@@ -66,7 +66,39 @@ class KahitSaanDialog extends ComponentDialog {
 
         
         // Give the user instructions about what to do next
-        await stepContext.context.sendActivity('Suggestion: ' + keys[rand_index]);
+        
+        var response = {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.0",
+            "body": [
+              {
+                "type": "ColumnSet",
+                "columns": [
+                  {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "url": "https://media.giphy.com/media/Nm8ZPAGOwZUQM/giphy.gif",
+                        "size": "medium"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TextBlock",
+                    "horizontalAlignment": "center",
+                    "wrap": false,
+                    "size": "large",
+                    "weight": "bolder",
+                    "text": 'Suggestion: ' + keys[rand_index]
+                  ,
+                ]
+              }
+            ]
+          };
+        await stepContext.context.sendActivity(response);
         
         return await stepContext.endDialog();
     }
