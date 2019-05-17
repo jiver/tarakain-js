@@ -62,8 +62,8 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-				"size": "large",
-				"isSubtle": true,
+		"size": "large",
+		"weight": "bolder",
                 "text": "G"
               },
               {
@@ -86,8 +86,8 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-				"size": "large",
-				"isSubtle": true,
+		"size": "large",
+		"weight": "bolder",
                 "text": "Pass"
               },
               {
@@ -110,8 +110,8 @@
                 "type": "TextBlock",
                 "horizontalAlignment": "center",
                 "wrap": false,
-				"size": "large",
-				"isSubtle": true,
+		"size": "large",
+		"weight": "bolder",
                 "text": "Pabili"
               },
               {
