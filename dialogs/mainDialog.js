@@ -18,12 +18,12 @@ class UserProfile {
 
 const LargeWeatherCard = require('../resources/LargeWeatherCard.json');
 
-const GGG = '<at>Tara Kain</at> G';
+const GGG = '<at>Tara Kain</at> Gora';
 const PASS = '<at>Tara Kain</at> Pass';
 const PABILI = '<at>Tara Kain</at> Pabili';
 
 const CHOICE_INDEX = {
-	'<at>Tara Kain</at> G': 0,
+	'<at>Tara Kain</at> Gora': 0,
 	'<at>Tara Kain</at> Pass': 1,
 	'<at>Tara Kain</at> Pabili': 2
 };
@@ -135,7 +135,6 @@ class MainDialog extends ComponentDialog {
     }
 
     /**
-     * Send a Rich Card response to the user based on their choice.
      * This method is only called when a valid prompt response is parsed from the user's response to the ChoicePrompt.
      * @param {WaterfallStepContext} stepContext
      */
@@ -179,44 +178,6 @@ class MainDialog extends ComponentDialog {
         
         console.log(stepContext)
         console.log(stepContext.result)
-        /*//console.log(stepContext.context)
-        //console.log(stepContext.context.activity)
-		//console.log(stepContext.context.activity.from)
-		//console.log(stepContext.context.activity.from.name)
-		//console.log(stepContext.context.activity.id)
-
-		console.log(this.createGCard())
-		
-        switch (stepContext.result.value) {
-        case 'G':
-            await stepContext.context.sendActivity({ attachments: [this.createGCard()] });
-			
-            break;
-        case 'Pass':
-            await stepContext.context.updateActivity({ attachments: [this.createPassCard()] });
-            break;
-        case 'Pabili':
-            await stepContext.context.sendActivity({ attachments: [this.createPabiliCard()] });
-            break;
-        default:
-            stepContext.context.sendActivity(stepContext.result.value);
-            await stepContext.context.sendActivity({
-                attachments: [
-                    this.createGCard(),
-                    this.createPassCard(),
-                    this.createPabiliCard()
-                ],
-                attachmentLayout: AttachmentLayoutTypes.Carousel
-            });
-            break;
-        }
-		await stepContext.context.deleteActivity(stepContext.context.activity.id);
-		
-        // Give the user instructions about what to do next
-        //await stepContext.context.sendActivity(stepContext.result.value);
-
-        return await stepContext.endDialog();
-    */
 	}
     /**
      * Create the choices with synonyms to render for the user during the ChoicePrompt.
@@ -225,8 +186,8 @@ class MainDialog extends ComponentDialog {
     getChoices() {
         const cardOptions = [
             {
-                value: 'G',
-                synonyms: ['g']
+                value: 'Gora',
+                synonyms: ['gora']
             },
             {
                 value: 'Pass',
@@ -241,47 +202,6 @@ class MainDialog extends ComponentDialog {
         return cardOptions;
     }
 
-    // ======================================
-    // Helper functions used to create cards.
-    // ======================================
-
-    createGCard() {
-        return CardFactory.adaptiveCard(AdaptiveCard);
-    }
-
-    createPassCard() {
-        return CardFactory.animationCard(
-            'Microsoft Bot Framework',
-            [
-                { url: 'https://i.giphy.com/Ki55RUbOV5njy.gif' }
-            ],
-            [],
-            {
-                subtitle: 'Animation Card'
-            }
-        );
-      //  return CardFactory.adaptiveCard(AdaptiveCard);
-    }
-
-    createPabiliCard() {
-      /*  return CardFactory.audioCard(
-            'I am your father',
-            ['https://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_yourfather.wav'],
-            CardFactory.actions([
-                {
-                    type: 'openUrl',
-                    title: 'Read more',
-                    value: 'https://en.wikipedia.org/wiki/The_Empire_Strikes_Back'
-                }
-            ]),
-            {
-                subtitle: 'Star Wars: Episode V - The Empire Strikes Back',
-                text: 'The Empire Strikes Back (also known as Star Wars: Episode V – The Empire Strikes Back) is a 1980 American epic space opera film directed by Irvin Kershner. Leigh Brackett and Lawrence Kasdan wrote the screenplay, with George Lucas writing the film\'s story and serving as executive producer. The second installment in the original Star Wars trilogy, it was produced by Gary Kurtz for Lucasfilm Ltd. and stars Mark Hamill, Harrison Ford, Carrie Fisher, Billy Dee Williams, Anthony Daniels, David Prowse, Kenny Baker, Peter Mayhew and Frank Oz.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg'
-            }
-        );*/
-        return CardFactory.adaptiveCard(AdaptiveCard);
-    }
 }
 
 
