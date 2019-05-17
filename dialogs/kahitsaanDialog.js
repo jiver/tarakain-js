@@ -87,12 +87,17 @@ class KahitSaanDialog extends ComponentDialog {
                     ]
                   },
                   {
-                    "type": "TextBlock",
-                    "horizontalAlignment": "center",
-                    "wrap": false,
-                    "size": "large",
-                    "weight": "bolder",
-                    "text": 'Suggestion: ' + keys[rand_index]
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                      {
+                        "type": "TextBlock",
+                        "horizontalAlignment": "center",
+                        "size": "large",
+                        "weight": "bolder",
+                        "text": 'Suggestion: ' + keys[rand_index]
+                      }
+                    ]
                   }
                 ]
               }
