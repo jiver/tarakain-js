@@ -284,4 +284,5 @@ class MainDialog extends ComponentDialog {
     }
 }
 
+
 module.exports.MainDialog = MainDialog;
