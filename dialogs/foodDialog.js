@@ -125,6 +125,7 @@ class FoodDialog extends ComponentDialog {
 		}
 		
 		user_choice = stepContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '');
+        console.log(user_choice);
 		switch (user_choice) {
         case P:
 			this.RESULT['price'][stepContext.context.activity.from.name] = stepContext.context.activity.text;
