@@ -57,7 +57,7 @@ const logger = console;
 const dialog = new MainDialog(logger);
 const food_dialog = new FoodDialog(logger);
 const kahit_saan_dialog = new KahitSaanDialog(logger);
-const bot = new RichCardsBot(conversationState, userState, dialog, food_dialog, kahit_saan, logger);
+const bot = new RichCardsBot(conversationState, userState, dialog, food_dialog, kahit_saan_dialog, logger);
 
 // Create HTTP server.
 let server = restify.createServer();
