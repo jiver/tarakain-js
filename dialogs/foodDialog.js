@@ -28,7 +28,8 @@ class FoodDialog extends ComponentDialog {
             this.choiceCardStepArea.bind(this),
             this.areaChoiceCardStep.bind(this),
             this.choiceCardStepType.bind(this),
-            this.typeChoiceCardStep.bind(this)
+            this.typeChoiceCardStep.bind(this),
+            this.showCardStep.bind(this)
         ]));
 
         // The initial child Dialog to run.
