@@ -12,9 +12,6 @@ function filterJSON(budget, area, type) {
     console.log('Current directory: ' + process.cwd());
     let rawdata = fs.readFileSync(process.cwd() + '\/dialogs\/db.json');
     var json_file = JSON.parse(rawdata);
-    budget = budget.toLowerCase();
-    area = area.toLowerCase();
-    type = type.toLowerCase();
 
     if (!budget) {
         budget = 'ppp';
@@ -24,14 +21,14 @@ function filterJSON(budget, area, type) {
         area = ['piazza', 'upper mckinley', 'tuscany', 'robinsons']
     }
     else {
-        area = [area]
+        area = [].concat(area)
     }
 
     if (!type) {
         type = ['resto', 'fast food']
     }
     else {
-        type = [type]
+        type = [].concat(type)
     }
 
     var filtered_list = [];
@@ -90,6 +87,10 @@ function getMajorityVote(vote_results) {
             majority_price = option;
             majority_price_count = price_count_map[option];
         }
+        else if (price_count_map[option] == majority_price_count) {
+			majority_price = [].concat(majority_price);
+			majority_price = majority_price.concat(option);
+		}
     }
 
     for ( var option in area_count_map ) {
@@ -97,6 +98,10 @@ function getMajorityVote(vote_results) {
             majority_area = option;
             majority_area_count = area_count_map[option];
         }
+        else if (area_count_map[option] == majority_area_count) {
+			majority_area = [].concat(majority_area);
+			majority_area = majority_area.concat(option);
+		}
     }
 
     for ( var option in type_count_map ) {
@@ -104,6 +109,10 @@ function getMajorityVote(vote_results) {
             majority_type = option;
             majority_type_count = type_count_map[option];
         }
+        else if (type_count_map[option] == majority_type_count) {
+			majority_type = [].concat(majority_type);
+			majority_type = majority_type.concat(option);
+		}
     }
 
     return [majority_price, majority_area, majority_type];
