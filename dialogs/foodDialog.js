@@ -21,7 +21,7 @@ function filterJSON(budget, area, type) {
     }
 
     if (!area) {
-        area = ['piazza', 'upper mckinley', 'tuscany', 'rob']
+        area = ['piazza', 'upper mckinley', 'tuscany', 'robinsons']
     }
     else {
         area = [area]
