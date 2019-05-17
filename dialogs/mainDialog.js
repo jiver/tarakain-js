@@ -84,6 +84,11 @@ class MainDialog extends ComponentDialog {
         const dialogSet = new DialogSet(accessor);
         dialogSet.add(this);
 
+	var user_msg = turnContext.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '').trim();
+        if ( user_msg == 'g' ) {
+            this.RESULT = {};
+        }
+	    
         const dialogContext = await dialogSet.createContext(turnContext);
         const results = await dialogContext.continueDialog();
         if (results.status === DialogTurnStatus.empty) {
