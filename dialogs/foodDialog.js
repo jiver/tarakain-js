@@ -9,10 +9,19 @@ const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const fs = require('fs');
     
 
-function getRandomInt(min, max) {
+function getRandomInt(min, max, n) {
+    var currentIndices = [];
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+        
+    while ( currentIndices.length != n ) {
+        var randInt = Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+        if ( !currentIndices.includes(randInt) ) {
+            currentIndices.push(randInt);
+        }
+    }
+    
+    return currentIndices;
 }
 
 function filterJSON(budget, area, type) {
@@ -335,12 +344,11 @@ class FoodDialog extends ComponentDialog {
         
         var majorityResults = getMajorityVote(this.RESULT);
         var filteredResults = filterJSON(majorityResults[0], majorityResults[1], majorityResults[2]);
-        
-        var randIndex = getRandomInt(0, filteredResults.length - 6);
-        
-        filteredResults = filteredResults.slice(randIndex, randIndex + 5);
-        
-        
+                
+	    var randIndices = getRandomInt(0, filteredResults.length - 1, 5);
+        	
+        filteredResults = [filteredResults[randIndices[0]], filteredResults[randIndices[1]], filteredResults[randIndices[2]], filteredResults[randIndices[3]], filteredResults[randIndices[4]]]
+                
 	var content = {
 		  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
 		  "type": "AdaptiveCard",
