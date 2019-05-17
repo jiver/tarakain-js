@@ -88,8 +88,9 @@ function getMajorityVote(vote_results) {
             majority_price_count = price_count_map[option];
         }
         else if (price_count_map[option] == majority_price_count) {
-			majority_price = [].concat(majority_price);
-			majority_price = majority_price.concat(option);
+            if (majority_price.length < option) {
+                majority_price = option;
+            }
 		}
     }
 
