@@ -152,7 +152,7 @@ class FoodDialog extends ComponentDialog {
         const dialogSet = new DialogSet(accessor);
         dialogSet.add(this);
         
-        var user_msg = turnContext.context.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '').trim();
+        var user_msg = turnContext.activity.text.toLowerCase().replace('<at>test</at> ', '').replace('<at>tara kain</at> ', '').trim();
         if ( user_msg == 'saan' ) {
             this.RESULT = {};
             this.RESULT['price'] = {};
