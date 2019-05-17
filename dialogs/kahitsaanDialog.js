@@ -93,7 +93,7 @@ class KahitSaanDialog extends ComponentDialog {
                     "size": "large",
                     "weight": "bolder",
                     "text": 'Suggestion: ' + keys[rand_index]
-                  ,
+                  }
                 ]
               }
             ]
