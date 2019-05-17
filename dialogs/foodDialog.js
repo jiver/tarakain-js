@@ -141,7 +141,7 @@ class FoodDialog extends ComponentDialog {
     async areaChoiceCardStep(stepContext) {
         const Piazza = 'piazza';
         const Tuscany = 'tuscany';
-        const Rob = 'rob';
+        const Rob = 'robinsons';
         this.logger.log('MainDialog.areachoiceCardStep');
         
         //await stepContext.repromptDialog()
@@ -174,8 +174,8 @@ class FoodDialog extends ComponentDialog {
     }
     
     async typeChoiceCardStep(stepContext) {
-        const FastFood = 'Fast food';
-        const Resto = 'Resto';
+        const FastFood = 'fast food';
+        const Resto = 'resto';
         this.logger.log('MainDialog.pricechoiceCardStep');
         
         //await stepContext.repromptDialog()
